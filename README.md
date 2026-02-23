@@ -1,18 +1,45 @@
-# Welcome to React Router!
+# Welcome to Roomify!
+Roomify est une application SaaS de visualisation architecturale propulsée par l’IA, construite avec **React**, **TypeScript** et **Puter**.
 
-A modern, production-ready template for building full-stack React applications using React Router.
+Elle permet de transformer des plans 2D en rendus 3D photoréalistes, avec :
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+- hébergement permanent des fichiers et des rendus,
+- métadonnées persistantes,
+- historique de projets,
+- et un flux communautaire global.
+
+Les modèles d’IA utilisés incluent **Claude** et **Gemini**, pour gérer la transformation architecturale et la génération d’images.
+
+
 
 ## Features
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+👉 **Visualisation 2D → 3D**  
+Transformation instantanée de plans 2D en modèles 3D photoréalistes grâce à l’IA.
+
+👉 **Hébergement persistant des médias**  
+Stockage permanent des fichiers avec URL publique pour chaque upload et chaque rendu.
+
+👉 **Galerie de projets dynamique**  
+Espace de travail personnel avec historique des visualisations, chargement instantané et métadonnées persistantes.
+
+👉 **Comparaison côte à côte**  
+Outils interactifs pour comparer directement le croquis architectural d’origine et son rendu généré par IA.
+
+👉 **Flux communautaire global**  
+Mur communautaire public où les utilisateurs partagent leurs projets architecturaux en un clic.
+
+👉 **Contrôles de confidentialité**  
+Gestion fine du mode public/privé pour chaque projet.
+
+👉 **Gestion de la propriété**  
+Système de métadonnées propre pour suivre les projets, utilisateurs et identifiants sur toute la plateforme.
+
+👉 **Export moderne**  
+Outils performants pour exporter les rendus et les intégrer dans des présentations ou workflows réels.
+
+Et bien plus encore (architecture du code, réutilisabilité, bonnes pratiques, etc.).
+
 
 ## Getting Started
 
@@ -78,10 +105,7 @@ Make sure to deploy the output of `npm run build`
 │   └── server/    # Server-side code
 ```
 
-## Styling
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
 
 ---
 
-Built with ❤️ using React Router.
