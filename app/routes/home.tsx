@@ -1,6 +1,6 @@
 import type { Route } from "./+types/home";
 import Navbar from '../../components/Navbar';
-import { ArrowRight, Clock, Layers } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Clock, Layers } from "lucide-react";
 import Button from "components/ui/Button";
 
 
@@ -81,8 +81,11 @@ export default function Home() {
                 <div className="meta">
                   <Clock size={12} />
                   <span>{new Date('01.01.2027').toLocaleDateString()}</span>
-
+                  <span>By Carolina</span>
                 </div>
+              </div>
+              <div className="arrow">
+                <ArrowUpRight size={18}/>
               </div>
               </div>
 
