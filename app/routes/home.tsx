@@ -1,6 +1,6 @@
 import type { Route } from "./+types/home";
 import Navbar from '../../components/Navbar';
-import { ArrowRight, Layers } from "lucide-react";
+import { ArrowRight, Clock, Layers } from "lucide-react";
 import Button from "components/ui/Button";
 
 
@@ -53,6 +53,44 @@ export default function Home() {
               <p>Upload images</p>
             </div>
         </div>
+      </section>
+      <section className="projects">
+        <div className="section-inner">
+          <div className="section-head">
+            <div className="copy">
+              <h2>Projects</h2>
+              <p>Your lastest work and shared community projects, all in one place</p>
+
+            </div>
+
+          </div>
+
+          <div className="projects-grid">
+            <div className="project-card group">
+              <div className="preview">
+                <img src="https://roomify-mlhuk267-dfwu1i.puter.site/projects/1770803585402/rendered.png" alt="Project"
+                />
+                <div className="badge">
+                  <span>Community</span>
+                </div>
+              </div>
+
+              <div className="card-body">
+              <div>
+                <h3>Project Manhattan</h3>
+                <div className="meta">
+                  <Clock size={12} />
+                  <span>{new Date('01.01.2027').toLocaleDateString()}</span>
+
+                </div>
+              </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
       </section>
     </div>
   );
