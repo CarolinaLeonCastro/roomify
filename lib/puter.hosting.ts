@@ -1,9 +1,6 @@
 import puter from "@heyputer/puter.js";
 import { createHostingSlug, HOSTING_CONFIG_KEY } from "./utils";
 
-type HostingConfig = { subdomain:string; };
-type HostedAsset = { url: string };
-
 
 export const getOrCreateHostingConfig = async (): Promise<HostingConfig | null> => {
     const existing = (await puter.kv.get(HOSTING_CONFIG_KEY)) as HostingConfig | null;
@@ -23,6 +20,6 @@ export const getOrCreateHostingConfig = async (): Promise<HostingConfig | null> 
 }
 
 export const uploadImageToHosting = async ({ hosting, url, projectId, label}: 
-StoredHostedImageParams): Promise<hostedAsset | null> => {
-    
+StoredHostedImageParams): Promise<HostedAsset | null> => {
+
 }
