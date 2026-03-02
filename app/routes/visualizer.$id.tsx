@@ -1,6 +1,6 @@
 import Button from 'components/ui/Button';
 import { generate3DView } from 'lib/ai.action';
-import { Box, Download, Share2, X } from 'lucide-react';
+import { Box, Download, RefreshCcw, Share2, X } from 'lucide-react';
 import React, { useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 
@@ -94,6 +94,15 @@ const VisualizerId = () => {
                   {initialImage && (
                     <img src={initialImage} alt='Original'
                     className='render-fallback' />
+                  )}
+                  {isProcessing &&(
+                    <div className='render-overlay'>
+                      <div className='rendering-card'>
+                        <RefreshCcw className='spinner'/>
+                        <span className='title '>Rendering...</span>
+                        <span className='subtitle'>Generating your 3D visualization</span>
+                      </div>
+                    </div>
                   )}
                 </div>
               )}
