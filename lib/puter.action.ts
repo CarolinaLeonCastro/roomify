@@ -1,6 +1,7 @@
 import puter from "@heyputer/puter.js";
 import { getOrCreateHostingConfig, uploadImageToHosting } from "./puter.hosting";
 import { isHostedUrl } from "./utils";
+import { PUTER_WORKER_URL } from "./constants";
 
 export const signIn = async () => await puter.auth.signIn();
 
@@ -63,6 +64,27 @@ Promise<DesignItem | null | undefined> => {
     } catch  (e) {
         console.log('Failed to save project', e)
         return null;
+    }
+}
+
+export const getProjects = async () => {
+    if(!PUTER_WORKER_URL) {
+        console.warn('Missing PUTER_WORKER_URL; skipping fetch.');
+        return [];
+    }
+
+    try {
+        const response = await puter.workers.exec(`${PUTER_WORKER_URL}/api/projects/list`,{ method: 'GET'});
+        if(!response.ok) {
+            console.error('Failed to fecth history', await response.text())
+            return [];
+        }
+        const data = (await response.json()) as { projects?: DesignItem[] | null };
+        return Array.isArray(data?.projects) ? data?.projects : [];
+       
+    } catch (e) {
+        console.error('Failed to get projects', e);
+        return [];
     }
 }
  
