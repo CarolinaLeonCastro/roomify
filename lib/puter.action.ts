@@ -15,8 +15,13 @@ export const getCurrentUser = async () => {
     }
 }
 
-export const createProject = async ({ item}: CreateProjectParams):
+export const createProject = async ({ item , visibility = "private"}: CreateProjectParams):
 Promise<DesignItem | null | undefined> => {
+    if(!PUTER_WORKER_URL) {
+        console.warn('Missing PUTER_WORKER_URL; skipping fetch.');
+        return null;
+    }
+
     const projectId = item.id;
     const hosting = await getOrCreateHostingConfig();
     const hostedSource = projectId ?
@@ -58,8 +63,20 @@ Promise<DesignItem | null | undefined> => {
     }
 
     try {
-        // Call the Puter worker to store project in kv
-        return payload;
+        const response = await puter.workers.exec(`${PUTER_WORKER_URL}/api/projects/save`,{ 
+            method: 'POST', headers: { 'Content-Type' : 'application/json' , body: JSON.stringify({ 
+                project: payload, visibility
+
+            })}, 
+        });
+
+        if(!response.ok) {
+            console.error('failed to save the project', await response.text());
+            return null;
+        }
+        const data = (await response.json()) as { project?: DesignItem | null } ;
+
+        return data?.project ?? null;
 
     } catch  (e) {
         console.log('Failed to save project', e)
